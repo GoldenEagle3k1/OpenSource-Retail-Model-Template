@@ -1,73 +1,127 @@
-# React + TypeScript + Vite
+# 🛍️ OpenSource Retail Model Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully-featured e-commerce storefront built with **React 19**, **TypeScript**, **Vite**, and **Tailwind CSS**. Designed as an open-source starting point for building beautiful retail web applications.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- 🏠 **Home Page** — Hero section with featured categories and promotional banners
+- 🛒 **Shop Page** — Product grid with filtering by category, price range, and ratings
+- 📦 **Product Detail Page** — Image gallery, color/size selectors, and add-to-cart
+- 🛍️ **Cart Page** — Full order summary with quantity controls and checkout flow
+- 🔔 **Toast Notifications** — Real-time feedback via `react-hot-toast`
+- 📱 **Fully Responsive** — Mobile-first layout that works on all screen sizes
+- 🎨 **Dark-accented Theme** — Curated color palette with smooth hover animations
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🗂️ Product Categories
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Category | Icon |
+|---|---|
+| Electronics | 💻 |
+| Clothing | 👕 |
+| Home | 🏠 |
+| Sports | 🏃 |
+| Beauty | ✨ |
+| Bike Spare Parts | 🚲 |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Tool | Purpose |
+|---|---|
+| [React 19](https://react.dev) | UI library |
+| [TypeScript](https://www.typescriptlang.org) | Type safety |
+| [Vite](https://vite.dev) | Build tool & dev server |
+| [Tailwind CSS v3](https://tailwindcss.com) | Utility-first styling |
+| [React Router v7](https://reactrouter.com) | Client-side routing |
+| [Zustand](https://zustand-demo.pmnd.rs) | Lightweight global state (cart) |
+| [Lucide React](https://lucide.dev) | Icon library |
+| [react-hot-toast](https://react-hot-toast.com) | Toast notifications |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── assets/           # Static images and SVGs
+├── components/
+│   ├── cart/         # CartItem, OrderSummary
+│   ├── layout/       # Navbar, Footer, Layout wrapper
+│   ├── product/      # ProductCard, ProductFilters
+│   └── ui/           # Badge, StarRating (reusable primitives)
+├── context/
+│   └── CartStore.ts  # Zustand cart store
+├── data/
+│   └── mockData.ts   # Static product & category data
+├── pages/
+│   ├── HomePage.tsx
+│   ├── ShopPage.tsx
+│   ├── ProductDetailPage.tsx
+│   └── CartPage.tsx
+├── types/
+│   └── index.ts      # Shared TypeScript interfaces
+├── App.tsx           # Router configuration
+├── main.tsx          # App entry point
+└── index.css         # Global styles & Tailwind directives
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- [Node.js](https://nodejs.org) v18 or higher
+- npm (comes with Node.js)
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/GoldenEagle3k1/OpenSource-Retail-Model-Template.git
+
+# 2. Navigate into the project
+cd OpenSource-Retail-Model-Template
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm run dev
 ```
+
+The app will be available at **http://localhost:5173**
+
+---
+
+## 📜 Available Scripts
+
+| Script | Description |
+|---|---|
+| `npm run dev` | Start the Vite dev server with HMR |
+| `npm run build` | Type-check and build for production |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint across the project |
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to open a pull request or issue.
+
+1. Fork the repo
+2. Create your feature branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -m "feat: add my feature"`
+4. Push to the branch: `git push origin feature/my-feature`
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
